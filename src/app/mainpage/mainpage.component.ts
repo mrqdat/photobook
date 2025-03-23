@@ -13,10 +13,14 @@ export class Mainpage implements OnInit, OnDestroy {
   private countdownInterval?: any;
 
   readonly weddingDate = new Date('2025-07-12').getTime();
-  readonly subject = 'Save the Date ';
+  readonly subject = 'Save the Date';
 
   ngOnInit(): void {
-    this.startCountdown();
+    if (typeof window !== 'undefined') { 
+      // Run only in the browser
+      this.startCountdown();
+    }
+    
   }
 
   private startCountdown(): void {
@@ -49,4 +53,3 @@ export class Mainpage implements OnInit, OnDestroy {
     }
   }
 }
-
