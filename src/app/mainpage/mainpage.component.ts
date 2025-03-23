@@ -10,8 +10,8 @@ export class Mainpage implements OnInit, OnDestroy {
   hours = '00';
   minutes = '00';
   seconds = '00';
-  private countdownInterval?: number;
- 
+  private countdownInterval?: any;
+
   readonly weddingDate = new Date('2025-07-12').getTime();
   readonly subject = 'Save the Date ';
 
@@ -20,12 +20,12 @@ export class Mainpage implements OnInit, OnDestroy {
   }
 
   private startCountdown(): void {
-    this.countdownInterval =  window.setInterval(() => {
+    this.countdownInterval = setInterval(() => {
       const now = new Date().getTime();
-      const distance = this.weddingDate - now;  
+      const distance = this.weddingDate - now;
 
       if (distance <= 0) {
-        window.clearInterval(this.countdownInterval);
+        clearInterval(this.countdownInterval);
         this.days = this.hours = this.minutes = this.seconds = '00';
         return;
       }
@@ -45,7 +45,7 @@ export class Mainpage implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.countdownInterval) {
-      window.clearInterval(this.countdownInterval);
+      clearInterval(this.countdownInterval);
     }
   }
 }

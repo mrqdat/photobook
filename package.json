@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.4",
+    "@angular/platform-browser": "^19.2.3",
+    "rimraf": "^6.0.1"
+  },
+  "dependencies": {
+    "@angular/platform-server": "^19.2.3",
+    "@angular/ssr": "^19.2.4"
+  }
+}
