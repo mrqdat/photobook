@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "enable" : false,
             "outputPath": "dist/photo-book",
             "index": "src/index.html",
             "browser": "src/main.ts",
