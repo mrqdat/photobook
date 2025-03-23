@@ -1,0 +1,79 @@
+/* Full-screen background container */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Background video */
+.video-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Horizontal countdown container */
+.countdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15); /* Light transparent effect */
+  padding: 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px); /* Glassmorphism */
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+.subject{
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Great Vibes', cursive; /* Elegant wedding-style font */
+  margin-right: 20px;
+}
+
+.countdown-timer{
+  display: flex;
+  flex-direction: row;
+  gap: 10px ;
+}
+/* Individual time block */
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  width: 120px;
+  margin: 0 0.5rem; /* Space between blocks */
+}
+
+/* Countdown numbers */
+.time-value {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Great Vibes', cursive; /* Elegant wedding-style font */
+}
+
+/* Time unit labels */
+.time-label {
+  font-size: 1.2rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Playfair Display', serif; /* Classic serif font */
+}
+
