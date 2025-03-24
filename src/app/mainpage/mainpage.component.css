@@ -77,3 +77,119 @@
   font-family: 'Playfair Display', serif; /* Classic serif font */
 }
 
+.mute-btn {
+  position: fixed;
+  bottom: 45px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background 0.3s ease;
+}
+
+.mute-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.mute-btn i {
+  transition: transform 0.3s ease;
+}
+
+.mute-btn:hover i {
+  transform: scale(1.1);
+}
+
+/* Ensure countdown scales well on smaller screens */
+@media (max-width: 1024px) {
+  .subject {
+    font-size: 2.5rem; /* Reduce subject font size */
+  }
+
+  .countdown-timer {
+    gap: 5px; /* Reduce gap between time blocks */
+  }
+
+  .time-block {
+    width: 100px; /* Reduce block width */
+    padding: 1rem;
+  }
+
+  .time-value {
+    font-size: 2.5rem; /* Adjust number size */
+  }
+
+  .time-label {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet devices */
+@media (max-width: 768px) {
+  .countdown-content {
+    padding: 0.8rem;
+  }
+
+  .subject {
+    font-size: 2rem;
+  }
+
+  .time-block {
+    width: 80px;
+    padding: 0.8rem;
+  }
+
+  .time-value {
+    font-size: 2rem;
+  }
+
+  .time-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .countdown-content {
+    width: 90%; /* Adjust width */
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+
+  .subject {
+    font-size: 1.8rem;
+  }
+
+  .countdown-timer {
+    flex-direction: column; /* Stack blocks vertically */
+    align-items: center;
+  }
+
+  .time-block {
+    width: 90px;
+    padding: 0.5rem;
+  }
+
+  .time-value {
+    font-size: 1.8rem;
+  }
+
+  .time-label {
+    font-size: 0.8rem;
+  }
+
+  .mute-btn {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}

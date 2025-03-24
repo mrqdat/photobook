@@ -27,6 +27,9 @@
   </div>
 
   <audio id="musicplayer" autoplay loop>
-    <source src="assets/audio/wedding-bg.mp3" type="audio/mp3">
+    <source src="{{bg_music}}" type="audio/mp3">
   </audio>
+  <button class="mute-btn" (click)="touggleAudio() ">
+    <i class="{{ is_muted ? 'fa fa-volume-mute' : 'fa fa-volume-up' }}"></i>
+  </button>
 </div>

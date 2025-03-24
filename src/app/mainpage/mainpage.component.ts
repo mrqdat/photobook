@@ -10,23 +10,32 @@ export class Mainpage implements OnInit, OnDestroy {
   hours = '00';
   minutes = '00';
   seconds = '00';
-  private countdownInterval?: any;
+  bg_music = '';
+  is_muted = false;
+  private countdownInterval?: number;
 
   readonly weddingDate = new Date('2025-07-12').getTime();
   readonly subject = 'Save the Date';
-
+  readonly now = new Date().getTime();
+ 
   ngOnInit(): void {
+    if(this.now === this.weddingDate) {
+      this.bg_music = 'assets/audio/wedding-bg-main.mp3';
+    }
+    else{
+      this.bg_music = 'assets/audio/wedding-bg.mp3';
+    }
     if (typeof window !== 'undefined') { 
       // Run only in the browser
       this.startCountdown();
-    }
+    } 
     
   }
 
   private startCountdown(): void {
-    this.countdownInterval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = this.weddingDate - now;
+    this.countdownInterval = window.setInterval(() => {      
+      const today = new Date().getTime(); 
+      const distance = this.weddingDate - today;
 
       if (distance <= 0) {
         clearInterval(this.countdownInterval);
@@ -45,6 +54,12 @@ export class Mainpage implements OnInit, OnDestroy {
         .toString()
         .padStart(2, '0');
     }, 1000);
+  }
+
+  touggleAudio(): void {
+    const audio = document.getElementById('musicplayer') as HTMLAudioElement;
+    this.is_muted = !this.is_muted;
+    audio.muted = this.is_muted;
   }
 
   ngOnDestroy(): void {

@@ -10,7 +10,7 @@ import { Mainpage } from './mainpage/mainpage.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '💍Countdown to Our Wedding 💖';
+  title = 'Countdown to Our Wedding 💖';
 
   constructor(private titleService: Title) {
     this.setPageTitle();
