@@ -1,15 +1,14 @@
 {
-  "version": 2,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
   "builds": [
     {
-      "src": "dist/photo-book/**/*",
-      "use": "@vercel/static"
-    }],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/browser/index.html"
+      "src": "src/main.ts",
+      "use": "@vercel/node"
     }
   ]
 }
-
