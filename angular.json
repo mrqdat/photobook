@@ -4,12 +4,6 @@
   "newProjectRoot": "projects",
   "projects": {
     "PhotoBook": {
-      "prerender": {
-        "builder": "@angular-devkit/build-angular:prerender",
-        "options": {
-          "enabled": false
-        }
-      },
       "projectType": "application",
       "schematics": {},
       "root": "",
