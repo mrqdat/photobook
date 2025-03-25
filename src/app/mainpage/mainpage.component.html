@@ -26,11 +26,11 @@
       </div>
     </div>
   
-    <audio id="musicplayer" autoplay loop [attr.src]="bg_music">
+    <audio #musicplayer autoplay loop [attr.src]="bg_music">
         <source [attr.src]="bg_music" type="audio/mp3">
     </audio>
-    <button class="mute-btn" (click)="toggleAudio() ">
-      <i class="{{ is_muted ? 'fa fa-volume-mute' : 'fa fa-volume-up' }}"></i>
+    <button class="mute-btn" (click)="toggleMute() ">
+      <i [class]="is_muted ? 'fas fa-volume-mute' : 'fas fa-volume-up'"></i>
     </button>
   </div>
 

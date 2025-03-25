@@ -53,14 +53,11 @@ export class Mainpage implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  toggleAudio(): void {
+  toggleMute(): void {
     const audio = this.audio.nativeElement;
     if (audio) {
-      if (audio.paused) {
-        audio.play().catch(error => console.log('Autoplay blocked:', error));
-      } else {
-        audio.pause();
-      }
+      this.is_muted = !this.is_muted;
+      audio.muted = this.is_muted;
     }
   }
 
