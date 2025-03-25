@@ -28,7 +28,7 @@
   
     <audio id="musicplayer" autoplay loop [attr.src]="bg_music">
         <source [attr.src]="bg_music" type="audio/mp3">
-      </audio>
+    </audio>
     <button class="mute-btn" (click)="toggleAudio() ">
       <i class="{{ is_muted ? 'fa fa-volume-mute' : 'fa fa-volume-up' }}"></i>
     </button>

@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
-  styleUrl: './mainpage.component.css'
+  styleUrls: ['./mainpage.component.css']
 })
 export class Mainpage implements OnInit, OnDestroy {
   days = '00';
@@ -14,6 +14,8 @@ export class Mainpage implements OnInit, OnDestroy {
   is_muted = false;
   private countdownInterval?: number;
 
+  @ViewChild('musicplayer', { static: false }) audio!: ElementRef<HTMLAudioElement>;
+
   readonly weddingDate = new Date('2025-07-12');
   readonly subject = 'Save the Date';
  
@@ -23,7 +25,6 @@ export class Mainpage implements OnInit, OnDestroy {
     this.bg_music = isWeddingDay ? 'assets/audio/wedding-bg-main.mp3' : 'assets/audio/wedding-bg.mp3';
     
     if (typeof window !== 'undefined') { 
-      // Run only in the browser
       this.startCountdown();
     } 
   }
@@ -52,10 +53,14 @@ export class Mainpage implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  toggleAudio() {
-    const audio = document.getElementById('musicplayer') as HTMLAudioElement;
+  toggleAudio(): void {
+    const audio = this.audio.nativeElement;
     if (audio) {
-      audio.play().catch(error => console.log('Autoplay blocked:', error));
+      if (audio.paused) {
+        audio.play().catch(error => console.log('Autoplay blocked:', error));
+      } else {
+        audio.pause();
+      }
     }
   }
 
@@ -65,3 +70,4 @@ export class Mainpage implements OnInit, OnDestroy {
     }
   }
 }
+
