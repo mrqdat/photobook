@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
+import { Mainpage } from "./mainpage/mainpage.component";
 import { Title } from '@angular/platform-browser';
-import { Mainpage } from './mainpage/mainpage.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true, // Required for using `imports`
-  imports: [Mainpage],
+  imports: [ Mainpage],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Countdown to Our Wedding 💖';
@@ -16,8 +15,7 @@ export class AppComponent {
     this.setPageTitle();
   }
 
-  setPageTitle() {
-    this.titleService.setTitle(this.title); // Sets browser tab title
+  setPageTitle(){
+    this.titleService.setTitle(this.title);
   }
 }
-

@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
-  styleUrls: ['./mainpage.component.css']
+  styleUrl: './mainpage.component.css'
 })
 export class Mainpage implements OnInit, OnDestroy {
   days = '00';
@@ -14,28 +14,24 @@ export class Mainpage implements OnInit, OnDestroy {
   is_muted = false;
   private countdownInterval?: number;
 
-  readonly weddingDate = new Date('2025-07-12').getTime();
+  readonly weddingDate = new Date('2025-07-12');
   readonly subject = 'Save the Date';
-  readonly now = new Date().getTime();
  
   ngOnInit(): void {
-    if(this.now === this.weddingDate) {
-      this.bg_music = 'assets/audio/wedding-bg-main.mp3';
-    }
-    else{
-      this.bg_music = 'assets/audio/wedding-bg.mp3';
-    }
+    const today = new Date();
+    const isWeddingDay = this.weddingDate.toDateString() === today.toDateString();
+    this.bg_music = isWeddingDay ? 'assets/audio/wedding-bg-main.mp3' : 'assets/audio/wedding-bg.mp3';
+    
     if (typeof window !== 'undefined') { 
       // Run only in the browser
       this.startCountdown();
     } 
-    
   }
 
   private startCountdown(): void {
     this.countdownInterval = window.setInterval(() => {      
-      const today = new Date().getTime(); 
-      const distance = this.weddingDate - today;
+      const today = new Date();
+      const distance = this.weddingDate.getTime() - today.getTime();
 
       if (distance <= 0) {
         clearInterval(this.countdownInterval);
@@ -56,10 +52,11 @@ export class Mainpage implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  touggleAudio(): void {
+  toggleAudio() {
     const audio = document.getElementById('musicplayer') as HTMLAudioElement;
-    this.is_muted = !this.is_muted;
-    audio.muted = this.is_muted;
+    if (audio) {
+      audio.play().catch(error => console.log('Autoplay blocked:', error));
+    }
   }
 
   ngOnDestroy(): void {
