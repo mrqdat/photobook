@@ -1,6 +1,6 @@
 <!-- countdown.component.html -->
 <div class="container">
-    <video class="video-background" autoplay loop controls>
+    <video class="video-background" autoplay loop>
       <source src="assets/video/bg-video.mp4" type="video/mp4">
     </video>
     
@@ -26,7 +26,7 @@
       </div>
     </div>
   
-    <audio #musicplayer autoplay loop [attr.src]="bg_music" controls>
+    <audio #musicplayer autoplay loop [attr.src]="bg_music" muted >
         <source [attr.src]="bg_music" type="audio/mp3">
     </audio>
     <button class="mute-btn" (click)="toggleMute() ">
