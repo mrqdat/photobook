@@ -22,7 +22,7 @@ export class Mainpage implements OnInit, OnDestroy {
   ngOnInit(): void {
     const today = new Date();
     const isWeddingDay = this.weddingDate.toDateString() === today.toDateString();
-    this.bg_music = isWeddingDay ? 'assets/audio/wedding-bg-main.mp3' : 'assets/audio/wedding-bg.mp3';
+    this.bg_music = isWeddingDay ? 'audio/wedding-bg-main.mp3' : 'audio/wedding-bg.mp3';
     
     if (typeof window !== 'undefined') { 
       this.startCountdown();
