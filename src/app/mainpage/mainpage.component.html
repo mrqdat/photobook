@@ -26,8 +26,8 @@
       </div>
     </div>
   
-    <audio #musicplayer autoplay loop [attr.src]="bg_music" muted >
-        <source [attr.src]="bg_music" type="audio/mp3">
+    <audio #musicplayer autoplay loop [src]="bg_music" [muted]="is_muted" >
+        <source [src]="bg_music" type="audio/mp3">
     </audio>
     <button class="mute-btn" (click)="toggleMute() ">
       <i [class]="is_muted ? 'fas fa-volume-mute' : 'fas fa-volume-up'"></i>
