@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/wed_story/browser",
+            "outputPath": "dist/wed_story",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -82,6 +82,7 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
