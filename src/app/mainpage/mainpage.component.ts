@@ -20,12 +20,14 @@ export class Mainpage implements OnInit, OnDestroy {
   readonly subject = 'Save the Date';
  
   ngOnInit(): void {
+    // this.ngAfterViewInit();
     const today = new Date();
     const isWeddingDay = this.weddingDate.toDateString() === today.toDateString();
     this.bg_music = isWeddingDay ? 'assets/audio/wedding-bg-main.mp3' : 'assets/audio/wedding-bg.mp3';
     
     if (typeof window !== 'undefined') { 
       this.startCountdown();
+      
     } 
   }
 
@@ -61,6 +63,12 @@ export class Mainpage implements OnInit, OnDestroy {
     }
   }
 
+  // ngAfterViewInit() {
+  //   const video = document.querySelector('.video-background') as HTMLVideoElement;
+  //   video.src = './assets/video/bg-video.mp4';
+  //   video.load();
+  //   video.play().catch(error => console.log('Autoplay blocked:', error));
+  // }
   ngOnDestroy(): void {
     if (this.countdownInterval) {
       clearInterval(this.countdownInterval);
